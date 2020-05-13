@@ -1,0 +1,6 @@
+framework module SWSlideVerifyView {
+  umbrella header "SWSlideVerifyView-umbrella.h"
+
+  export *
+  module * { export * }
+}

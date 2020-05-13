@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SWSlideVerifyView_Example' do
+  pod 'SWSlideVerifyView', :path => '../'
+
+  target 'SWSlideVerifyView_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
