@@ -40,10 +40,10 @@
 		607FACE51AFB9204008FA782 /* SWSlideVerifyView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SWSlideVerifyView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		8C76087E2A8714C0722C35D7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		9590102C9A6243232BE1C4A1 /* SWSlideVerifyView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SWSlideVerifyView.podspec; path = ../SWSlideVerifyView.podspec; sourceTree = "<group>"; };
+		8C76087E2A8714C0722C35D7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		9590102C9A6243232BE1C4A1 /* SWSlideVerifyView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SWSlideVerifyView.podspec; path = ../SWSlideVerifyView.podspec; sourceTree = "<group>"; };
 		A19F7B1BA84403C13D945881 /* Pods-SWSlideVerifyView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWSlideVerifyView_Example.release.xcconfig"; path = "Target Support Files/Pods-SWSlideVerifyView_Example/Pods-SWSlideVerifyView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		A8A25FC09E912F4ECF99BF63 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		A8A25FC09E912F4ECF99BF63 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		B81B1F34C45C83610B93B726 /* Pods_SWSlideVerifyView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWSlideVerifyView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED05DB8A36AEB9353B01DF5A /* Pods_SWSlideVerifyView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SWSlideVerifyView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF9373BDAB379F09136A8BCC /* Pods-SWSlideVerifyView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SWSlideVerifyView_Tests.release.xcconfig"; path = "Target Support Files/Pods-SWSlideVerifyView_Tests/Pods-SWSlideVerifyView_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -77,7 +77,6 @@
 				36B80F9FC2CB12974C33DCBE /* Pods-SWSlideVerifyView_Tests.debug.xcconfig */,
 				EF9373BDAB379F09136A8BCC /* Pods-SWSlideVerifyView_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -214,10 +213,12 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2B2RV76D73;
 						LastSwiftMigration = 0900;
 					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = 2B2RV76D73;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
@@ -228,6 +229,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -438,7 +440,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -484,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -497,6 +499,7 @@
 			baseConfigurationReference = 3B6AA9DF1350C8D5DF1EA295 /* Pods-SWSlideVerifyView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2B2RV76D73;
 				INFOPLIST_FILE = SWSlideVerifyView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -512,6 +515,7 @@
 			baseConfigurationReference = A19F7B1BA84403C13D945881 /* Pods-SWSlideVerifyView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2B2RV76D73;
 				INFOPLIST_FILE = SWSlideVerifyView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
@@ -526,6 +530,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 36B80F9FC2CB12974C33DCBE /* Pods-SWSlideVerifyView_Tests.debug.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2B2RV76D73;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -548,6 +553,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EF9373BDAB379F09136A8BCC /* Pods-SWSlideVerifyView_Tests.release.xcconfig */;
 			buildSettings = {
+				DEVELOPMENT_TEAM = 2B2RV76D73;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 					"$(inherited)",
