@@ -11,42 +11,63 @@ class SlideVerifyView: UIView {
 
     private var successView: UIView?
 
-    let maskLayer = CALayer()
+    private let maskLayer = CALayer()
 
-    let bgLayer = CALayer()
+    private let bgProcessLayer = CALayer()
+
+    private let textLayer = CenterTextLayer()
 
     private var editable = true
 
-    @IBInspectable
-    open var borderWidth: CGFloat = 1.0 {
+    @IBInspectable open var borderWidth: CGFloat = 1.0 {
         didSet {
             self.layer.borderWidth = borderWidth
         }
     }
 
-    @IBInspectable
-    open var borderColor: CGColor = UIColor.gray.cgColor {
+    @IBInspectable open var borderColor: UIColor = UIColor.gray {
         didSet {
-            self.layer.borderColor = borderColor
+            self.layer.borderColor = borderColor.cgColor
         }
     }
 
-    @IBInspectable
-    open var cornerRadius: CGFloat = 8.0 {
+    @IBInspectable open var bgColor: UIColor = UIColor.lightGray {
+        didSet {
+            self.layer.backgroundColor = bgColor.cgColor
+        }
+    }
+
+    @IBInspectable open var processColor: UIColor = UIColor.red {
+        didSet {
+            self.bgProcessLayer.backgroundColor = processColor.cgColor
+        }
+    }
+
+    @IBInspectable open var text: String = "" {
+        didSet {
+            textLayer.string = text
+        }
+    }
+
+    @IBInspectable open var textColor: UIColor = UIColor.white {
+        didSet {
+            textLayer.foregroundColor = textColor.cgColor
+        }
+    }
+
+    @IBInspectable open var cornerRadius: CGFloat = 8.0 {
         didSet {
             self.layer.cornerRadius = cornerRadius
         }
     }
 
-    @IBInspectable
-    open var thumbImage: UIImage? {
+    @IBInspectable open var thumbImage: UIImage? {
         didSet {
             thumbImageView.image = thumbImage
         }
     }
 
-    @IBInspectable
-    open var successImage: UIImage? {
+    @IBInspectable open var successImage: UIImage? {
         didSet {
             successImageView.image = successImage
         }
@@ -70,19 +91,23 @@ class SlideVerifyView: UIView {
 
     private func initView() {
         self.layer.borderWidth = borderWidth
-        self.layer.borderColor = borderColor
-        self.layer.backgroundColor = UIColor.lightGray.cgColor
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.backgroundColor = bgColor.cgColor
         self.layer.cornerRadius = cornerRadius
         self.thumbImageView.image = thumbImage
         self.successImageView.image = successImage
 
         ///init back ground layer
-        bgLayer.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height)
-        bgLayer.cornerRadius = cornerRadius
-        bgLayer.backgroundColor = UIColor.red.cgColor
-        layer.addSublayer(bgLayer)
+        bgProcessLayer.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height)
+        bgProcessLayer.cornerRadius = cornerRadius
+        bgProcessLayer.backgroundColor = processColor.cgColor
+        layer.addSublayer(bgProcessLayer)
 
-        /// thumbnail view
+        ///init mask layer
+        maskLayer.backgroundColor = UIColor.blue.cgColor
+        bgProcessLayer.mask = maskLayer
+
+        ///thumbnail view
         thumbnailView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.frame.size.height, height: self.layer.frame.size.height))
         thumbnailView!.layer.backgroundColor = UIColor.white.cgColor
         thumbnailView!.contentMode = .center
@@ -90,12 +115,20 @@ class SlideVerifyView: UIView {
         thumbnailView!.addSubview(thumbImageView)
         addSubview(thumbnailView!)
 
-        /// finish check view
+        ///finish check view
         successView = UIView(frame: CGRect(x: self.frame.width - self.frame.height, y: 0.0, width: self.frame.height, height: self.frame.height))
         successView!.layer.backgroundColor = UIColor.white.cgColor
         successView!.contentMode = .center
-        successImageView.frame = CGRect(x: self.thumbnailView!.frame.width/2 - 8, y:  self.thumbnailView!.frame.height/2 - 8, width: 16, height: 16)
+        successImageView.frame = CGRect(x: self.frame.height/2 - 8, y:  self.frame.height/2 - 8, width: 16, height: 16)
         successView?.addSubview(successImageView)
+
+        ///text layer
+        textLayer.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.width, height: self.frame.height)
+        textLayer.fontSize = 14
+        textLayer.foregroundColor = textColor.cgColor
+        textLayer.alignmentMode = kCAAlignmentCenter
+        textLayer.contentsScale = UIScreen.main.scale
+        layer.addSublayer(textLayer)
     }
 
     func updateLocation(_ touch: UITouch) {
@@ -106,15 +139,21 @@ class SlideVerifyView: UIView {
     func refresh() {
         ///refresh maskLayer
         maskLayer.frame = CGRect(x: 0.0, y: 0.0, width: xtouch, height: self.frame.size.height)
-        maskLayer.backgroundColor = UIColor.blue.cgColor
         maskLayer.removeAllAnimations()
-        bgLayer.mask = maskLayer
         ///refresh thumbnail view
         thumbnailView?.frame = CGRect(x: xtouch, y: 0.0, width: self.frame.size.height, height: self.frame.size.height)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
+        ///set frame on layoutSubviews
+        bgProcessLayer.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height)
+        thumbnailView?.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.height, height: self.layer.frame.size.height)
+        thumbImageView.frame = CGRect(x: self.frame.height/2 - 8, y: self.frame.height/2 - 8, width: 16.0, height: 16.0)
+        successView?.frame = CGRect(x: self.frame.width - self.frame.height, y: 0.0, width: self.frame.height, height: self.frame.height)
+        successImageView.frame = CGRect(x: self.frame.height/2 - 8, y:  self.frame.height/2 - 8, width: 16, height: 16)
+        textLayer.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.width, height: self.frame.height)
+        refresh()
     }
 
     func toBeginPosAnim() {
@@ -148,7 +187,9 @@ class SlideVerifyView: UIView {
     }
 
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        toBeginPosAnim()
+        if self.editable {
+            toBeginPosAnim()
+        }
     }
 
 }

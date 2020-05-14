@@ -11,6 +11,7 @@
 		11C410135C7E89353B480AC8DE0BFB77 /* UIApplication+StrictKeyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F538C426803AE34255FC6E35B408CCA /* UIApplication+StrictKeyWindow.m */; };
 		14AD81D52FAD9CF2C065C61FB00C3B4F /* UIImage+Diff.m in Sources */ = {isa = PBXBuildFile; fileRef = 4568279DE47DC3AB91598E1317503995 /* UIImage+Diff.m */; };
 		14C511527597E5846AB2627F791C7D8E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716A9972B9D9103B54DB950893FAF104 /* QuartzCore.framework */; };
+		18C49A2C246CE62500E3B11C /* CenterTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18892606246CC57900327188 /* CenterTextLayer.swift */; };
 		2DCFF0CE0BD295F1D46D3247F36B192C /* UIImage+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = 235A78CFFA6D8B8D86CACD733531CB13 /* UIImage+Compare.m */; };
 		40039E0AF0D764360B1D4FC4F7950D2E /* UIApplication+StrictKeyWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 99A67367E018411D614EC8536A8A1C5B /* UIApplication+StrictKeyWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		46BF3AC1814D9C4AB61E8B3378B3AED0 /* SWSlideVerifyView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 959EA5920DBD495B64C93E8F73BACF36 /* SWSlideVerifyView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		0446E123B85CC3FEBBB7F6954E894845 /* Pods-SWSlideVerifyView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SWSlideVerifyView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		0F538C426803AE34255FC6E35B408CCA /* UIApplication+StrictKeyWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIApplication+StrictKeyWindow.m"; path = "FBSnapshotTestCase/Categories/UIApplication+StrictKeyWindow.m"; sourceTree = "<group>"; };
+		18892606246CC57900327188 /* CenterTextLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CenterTextLayer.swift; path = SWSlideVerifyView/Classes/CenterTextLayer.swift; sourceTree = "<group>"; };
 		1ADA6E655DC84D06359BD0ED5E36C783 /* FBSnapshotTestCase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FBSnapshotTestCase-dummy.m"; sourceTree = "<group>"; };
 		1BB1657D800C7DCF5FCC4269FC9048E7 /* Pods-SWSlideVerifyView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SWSlideVerifyView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		20847C3B2AAF4E75BA71E10562E7CF22 /* Pods-SWSlideVerifyView_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SWSlideVerifyView_Tests-frameworks.sh"; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		5ADDE2DF6D02FFFA1D2C99D35C3DC25C /* SWSlideVerifyView */ = {
 			isa = PBXGroup;
 			children = (
+				18892606246CC57900327188 /* CenterTextLayer.swift */,
 				CAC859F6DD31E387210359B6DCB35A26 /* SlideVerifyView.swift */,
 				7AD8FC980581277BE7A5E4828A38E2F2 /* Pod */,
 				183D118B0518D7F99DE8C0CFCB0824C5 /* Support Files */,
@@ -575,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C49A2C246CE62500E3B11C /* CenterTextLayer.swift in Sources */,
 				840FED894E757E4B9850112A42E39962 /* SlideVerifyView.swift in Sources */,
 				A669BD2ACF384C2869E6041FC14BB90A /* SWSlideVerifyView-dummy.m in Sources */,
 			);
