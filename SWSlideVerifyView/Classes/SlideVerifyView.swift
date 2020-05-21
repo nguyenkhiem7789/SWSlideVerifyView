@@ -1,7 +1,11 @@
 import UIKit
 
+public protocol SlideVerifyDelegate {
+    func finish()
+}
+
 @IBDesignable
-class SlideVerifyView: UIView {
+open class SlideVerifyView: UIView {
 
     private var thumbImageView = UIImageView()
 
@@ -18,6 +22,8 @@ class SlideVerifyView: UIView {
     private let textLayer = CenterTextLayer()
 
     private var editable = true
+
+    public var delete: SlideVerifyDelegate?
 
     @IBInspectable open var borderWidth: CGFloat = 1.0 {
         didSet {
@@ -84,7 +90,7 @@ class SlideVerifyView: UIView {
         initView()
     }
 
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         initView()
     }
@@ -144,7 +150,7 @@ class SlideVerifyView: UIView {
         thumbnailView?.frame = CGRect(x: xtouch, y: 0.0, width: self.frame.size.height, height: self.frame.size.height)
     }
 
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         ///set frame on layoutSubviews
         bgProcessLayer.frame = CGRect(x: 0.0, y: 0.0, width: self.frame.size.width, height: self.frame.size.height)
@@ -161,14 +167,14 @@ class SlideVerifyView: UIView {
     }
 
     // MARK: - Touch events
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         if self.editable {
             updateLocation(touch)
         }
     }
 
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         if self.editable {
             updateLocation(touch)
@@ -176,17 +182,18 @@ class SlideVerifyView: UIView {
                 editable = false
                 self.thumbnailView?.removeFromSuperview()
                 self.addSubview(successView!)
+                self.delete?.finish()
             }
         }
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.editable {
             toBeginPosAnim()
         }
     }
 
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         if self.editable {
             toBeginPosAnim()
         }

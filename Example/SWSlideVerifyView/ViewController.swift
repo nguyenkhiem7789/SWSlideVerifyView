@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import SWSlideVerifyView
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var slideVerifyView: SlideVerifyView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        slideVerifyView.delete = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,3 +25,11 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: SlideVerifyDelegate {
+
+    func finish() {
+        slideVerifyView.text = "Verify success!"
+        slideVerifyView.textColor = UIColor.red
+    }
+
+}

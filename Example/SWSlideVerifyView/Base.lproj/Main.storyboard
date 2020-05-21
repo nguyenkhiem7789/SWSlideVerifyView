@@ -58,6 +58,9 @@
                             <constraint firstItem="fzf-1t-ndU" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="VTi-vS-h8J"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="slideVerifyView" destination="fzf-1t-ndU" id="eua-EI-wqP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
